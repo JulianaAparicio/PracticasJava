@@ -1,109 +1,42 @@
-package Semana_1;
-
-import java.util.Scanner;
+package Semana_5.mesaTrabajoClase14;
 
 public class Main {
+
     public static void main(String[] args) {
-        // PLAYGROUND
-        /*
-         Ejercitacion Estructuras
-         Ejercicio 1
-            Definir dos números enteros. Asignarles un valor a cada uno. Comprobar si un número es
-            divisible por el segundo e indicar mediante un mensaje el resultado obtenido.
-            NOTA: Que sea divisible quiere decir que al dividir da un valor exacto, es decir, sin
-            decimales.
+        /*El ejercicio no pide explicitamente hacer nada sobre el main pero a modo de ejemplo
+        probamos los metodos implementados*/
 
-         */
-                int num1 = 27;
-                int num2 = 3;
-
-                if(num1%num2 == 0){
-                    System.out.println("El primer numero es divisible por el segundo numero");
-                } else {
-                    System.out.println("El primer numero no es divisible por el segundo numero");
-                }
-
-        /*
-         CLASE 2
-
-        Practica en clase - Ejercitación Sintaxis Java
-
-         EJERCICIO 1:
-                Ingresa tu nombre y tu apellido por separado, a partir de estas variables obtener en una
-                tercera tus iniciales y tu fecha de nacimiento, para la fecha ingresa, 3 valores que
-                representan día, mes y año.
-                Luego muestra un mensaje, como si fuera una ficha, con tu nombre completo. Las iniciales
-                de tu nombre y apellido y tu fecha de nacimiento con el formato “dd/mm/aaaa”
-                Nota: Utilizar alguna función para resolver, por ejemplo una que dados los 3 valores
-                devuelve la fecha como un string.
-        */
-
-        Scanner lector = new Scanner(System.in);
-        String nombre;
-        String apellido;
-        String dia;
-        String mes;
-        String anio;
-
-        System.out.println("Ingrese su nombre: ");
-        nombre = lector.nextLine();
-        System.out.println("Ingrese su apellido: ");
-        apellido = lector.nextLine();
-        System.out.println("Ingrese su día de nacimiento: ");
-        dia = lector.nextLine();
-        System.out.println("Ingrese su mes de nacimiento: ");
-        mes = lector.nextLine();
-        System.out.println("Ingrese su año de nacimiento: ");
-        anio = lector.nextLine();
+        //Probamos el método compareTo que debíamos sobreescribir
+        Comparable yate1 = new Yate(4);
+        Comparable yate2 = new Yate(5);
 
 
-        System.out.println("Sus iniciales son: "+ nombre.charAt(0) + "." + apellido.charAt(0) + "." + "Su fecha de nacimiento es: " + dia + "/" + mes + "/" + anio);
-
-        // Ejercicio 1 -- MT
-
-        Clase_2 ejercicio1 = new Clase_2();
-
-        if (ejercicio1.esPrimo(10)) {
-            System.out.println(10 + " es primo.");
-        } else {
-            System.out.println(10 + " no es primo.");
+        if(yate1.compareTo(yate2) == 0){
+            System.out.println("Yate 1 es igual a Yate 2");
+        }else if(yate1.compareTo(yate2) > 0) {
+            System.out.println("Yate 1 es mayor a Yate 2");
+        } else{
+            System.out.println("Yate 2 es mayor a Yate 1");
         }
 
-        System.out.println("------------------------");
+        //Probamos métodos de la clase Velero
+        Velero velero = new Velero();
+        //Probamos el constructor solicitado
+        Capitan capitan = new Capitan("Juan","Rodriguez","3287");
+        velero.setCapitan(capitan);
+        velero.setAñoFabricacion(2021);
+        velero.setValorAdicional(500);
+        velero.setValorBase(10000);
+        velero.setCantMastiles(10);
 
+        if(velero.esVeleroGrande())
+            System.out.println("Es un velero grande");
+        else
+            System.out.println("Es un velero chico");
 
-        // Ejercicio 2 -- MT
+        System.out.println("Monto alquiler velero:" + velero.montoAlquiler());
 
-        Clase_2 ejercicio2 = new Clase_2();
-
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("Ingrese el valor para el número A:");
-        Integer unNumeroA = scanner.nextInt();
-        scanner.nextLine();
-
-        System.out.println("Ingrese el valor para el número B:");
-        Integer unNumeroB = scanner.nextInt();
-        scanner.nextLine();
-
-        System.out.println("Ingrese el valor para el número C:");
-        Integer unNumeroC = scanner.nextInt();
-        scanner.nextLine();
-
-        ejercicio2.maximoEntreTresNumeros(unNumeroA,unNumeroB,unNumeroC);
-
-        System.out.println("------------------------");
-
-
-        // Ejercicio 3 -- MT
-
-        Clase_2 ejercicio3 = new Clase_2();
-
-        if (ejercicio3.cadenasDeTextoDistintas("Holis", "Holus")) {
-            System.out.println("Son diferentes.");
-        }
-        else {
-            System.out.println("Son iguales.");
-        }
     }
+
 }
+
